@@ -1,2 +1,2 @@
 # legendary-octo-barnacle
-django todo list
+django + ajax todo list
