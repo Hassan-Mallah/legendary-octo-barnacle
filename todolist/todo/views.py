@@ -15,3 +15,11 @@ def index(request: HttpResponse):
         return redirect('/')  # back to home page
 
     return render(request, 'index.html', context={'todos': todos})
+
+
+# delete a task using pk
+def delete(request: HttpResponse, pk):
+    todo = Todo.objects.get(id=pk)
+    todo.delete()
+    return redirect('/')
+

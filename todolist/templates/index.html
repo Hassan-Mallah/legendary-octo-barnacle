@@ -126,6 +126,7 @@ input {
 }
 
 
+
     </style>
 </head>
 <body>
@@ -135,14 +136,14 @@ input {
     <form action="" method="POST">
         {% csrf_token %}
         <input type="text" name="title" id="myInput" placeholder="Title...">
-        <button type="submit" class="'addBtn">Add</button>
+        <button type="submit" class="addBtn">Add</button>
     </form>
 </div>
 
 <ul id="myUL">
     {% for todo in todos reversed %}
-        <!--  | title makes 1st letter capital -->
-        <li>{{todo.title | title}}</li>
+    <!--  | title makes 1st letter capital -->
+    <li>{{todo.title | title}}<span class="close"><a style="text-decoration: none; color: black" href="delete/{{todo.id}}">Delete</a></span></li>
     {% endfor %}
 </ul>
 
