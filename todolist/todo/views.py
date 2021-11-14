@@ -5,6 +5,7 @@ from .models import Todo
 
 # Create your views here.
 def index(request: HttpResponse):
+    todos = Todo.objects.all()
     if request.method == 'POST':
         # for new task, save it to DB
         new_todo = Todo(
@@ -12,4 +13,5 @@ def index(request: HttpResponse):
         )
         new_todo.save()
         return redirect('/')  # back to home page
-    return render(request, 'index.html')
+
+    return render(request, 'index.html', context={'todos': todos})

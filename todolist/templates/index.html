@@ -140,6 +140,10 @@ input {
 </div>
 
 <ul id="myUL">
+    {% for todo in todos reversed %}
+        <!--  | title makes 1st letter capital -->
+        <li>{{todo.title | title}}</li>
+    {% endfor %}
 </ul>
 
 </body>
